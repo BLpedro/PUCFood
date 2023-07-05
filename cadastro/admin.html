@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> PucFood</title>
+    <script src="./index.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="./admin.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    
+
+
+  <body>
+    <header>
+    <a class="logo" href="home.html">PucFood</a>
+  </header>
+
+  <div class="front"></div> 
+    <h2>Carrinho de Compra</h2>
+    <div id="carrinho"></div>
+    <button class="esvaziarCarrinho" id="esvaziarCarrinho">Esvaziar Carrinho</button><br>
+  
+    <button id="btnAdicionarLinha" onclick="adicionarLinha()">Concluir Compra</button>
+
+  </div>
+
+
+    <div id="produtos">
+      <div id="produto1">
+        <h3>Pão de queijo</h3>
+        <img src="./imagens/yt-069_pao-de-queijo_receita.jpg">
+        <p> R$1.50 </p>
+        <button class="comprar">Comprar</button>
+      </div>
+  
+      <div id="produto2">
+        <h3>Empada</h3>
+        <img src="./imagens/209041939_332096688532498_4563438401343223032_n-1024x1024.jpg">
+        <p> R$3.50 </p>
+        <button class="comprar">Comprar</button>
+      </div>
+      <div id="produto3">
+        <h3>Coxinha</h3>
+        <img src="./imagens/download (1).jpg">
+        <p> R$4.50 </p>
+        <button class="comprar">Comprar</button>
+      </div>
+    </div>
+    <div id="produtos">
+      <div id="produto4">
+        <h3>Almoço</h3>
+        <img src="./imagens/9e2778b0-b072-11ec-9fff-7ee45ba8aa30.jpg">
+        <p> R$13.50 </p>
+        <button class="comprar">Comprar</button>
+      </div>
+  
+      <div  id="produto5">
+        <h3>Coca Cola 250ml</h3>
+        <img src="./imagens/002275-omie___mini-coca-pet-250ml__conv-1000x1000.jpg">
+        <p> R$3.39 </p>
+        <button class="comprar">Comprar</button>
+      </div>
+      <div class="produto6">
+        <h3>Açai</h3>
+        <img src="./imagens/b7e870fe16253b03d4f5e4eca7c887cf_XL.jpg">
+        <p> R$3.50 </p>
+        <button class="comprar">Comprar</button>
+      </div>
+    </div>
+    <div id="produtos">
+      <div id="produto7">
+        <h3>Suco De Laranja Natural One - 2L</h3>
+        <img src="./imagens/images (1).jpg">
+        <p>R$16.90</p>
+        <button class="comprar">Comprar</button>
+      </div>
+
+        <div id="produto8">
+        <h3>Energético Energy Monster 473ml
+        </h3>
+        <img src="./imagens/images.jpg">
+        <p> R$11.90 </p>
+        <button class="comprar">Comprar</button>
+      </div>
+
+        <div id="produto9">
+        <h3>Agua Mineral Crystal C/Gas 500ml</h3>
+        <img src="./imagens/download.jpg">
+        <p> R$3.05       </p>
+        <button class="comprar9">Comprar</button>
+      </div>
+    </div>
+  </div>
+    <div id="carrinho-icon">🛒</div>
+  
+    <footer>
+      <ul>
+        <b> METODOS DE PAGAMENTOS:</b>
+        <li> Visa </li>
+        <li> Mastercard </li>
+        <li> Pix </li>
+        <li> Boleto </li>
+      </ul>
+      
+      <ul>
+        <b> LINK ÚTEIS:</b>
+        <a href="cadastro-clientes.html"> Cadastro Clientes </a>
+        <a href="cadastro.html"> Cadastro Estabelecimentos </a>
+        <a href="index.html"> Login </a>
+        <a href="area.html"> Aréa do Usuario </a>
+      </ul>
+      
+      <ul>
+        <b> CONTATE-NOS:</b>
+        <li> R. Cláudio Manoel, 1162 -</li>
+        <li> - Savassi, Belo Horizonte  </li>
+        <li> PucFood@gmail.com </li>
+        <li> (31) 3131-2450 </li>
+      </ul>
+      </footer>
+
+      <table id="tabelaObjetos">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome do aluno</th>
+            <th>Produtos</th>
+            <th>Valor total</th>
+            <th>Prédio</th>
+            <th>Sala</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+    
+</body>
+</html>
+
+<script>
+  var carrinho = [];
+
+
+  var botaoEsvaziarCarrinho = document.getElementById("esvaziarCarrinho");
+  botaoEsvaziarCarrinho.addEventListener("click", esvaziarCarrinho); 
+
+  function esvaziarCarrinho() {
+    carrinho = [];
+    exibirCarrinho();
+  }
+
+  function adicionarAoCarrinho(produto) {
+    carrinho.push(produto);
+    exibirCarrinho();
+  }
+
+  function exibirCarrinho() {
+    var carrinhoDiv = document.getElementById("carrinho");
+    carrinhoDiv.innerHTML = "";
+
+    for (var i = 0; i < carrinho.length; i++) {
+      var produtoDiv = document.createElement("div");
+      produtoDiv.innerHTML = carrinho[i].nome + " - R$" + carrinho[i].preco;
+      carrinhoDiv.appendChild(produtoDiv);
+    }
+  }
+
+  var botoesComprar = document.querySelectorAll(".comprar");
+  botoesComprar.forEach(function(botao) {
+    botao.addEventListener("click", function(event) {
+      var divProduto = event.target.closest("div[id^='produto']");
+      var nomeProduto = divProduto.querySelector("h3").textContent;
+      var precoProduto = divProduto.querySelector("p").textContent;
+      var produto = {
+        nome: nomeProduto,
+        preco: precoProduto
+      };
+      adicionarAoCarrinho(produto);
+    });
+  });
+</script>
+
+
+
+
+<script>
+  
+  var proximoId = 3;
+
+  var objeto1 = {
+  id: 1,
+  nome: "pedro",
+  produtos: "coxinha",
+  valor: "2.50",
+  predio: "4",
+  sala: "100",
+  situacao: "Entregue"
+};
+
+var objeto2 = {
+  id: 2,
+  nome: "Maria",
+  produtos: "Energético Energy Monster 473ml",
+valor: "11.90",
+  predio: "4",
+  sala: 202,
+  situacao: "Entregue"
+};
+
+// Função para adicionar um objeto à tabela
+function adicionarObjeto(objeto) {
+  var tabela = document.getElementById("tabelaObjetos");
+  var linha = tabela.insertRow(-1); // Insere uma nova linha no final da tabela
+
+  // Insere as células na linha
+  var idCelula = linha.insertCell(0);
+  var nomeCelula = linha.insertCell(1);
+  var produtosCelula = linha.insertCell(2);
+  var valorCelula = linha.insertCell(3);
+  var predioCelula = linha.insertCell(4);
+  var salaCelula = linha.insertCell(5);
+  var situacaoCelula = linha.insertCell(6);
+
+  // Preenche as células com os valores do objeto
+  idCelula.innerHTML = objeto.id;
+  nomeCelula.innerHTML = objeto.nome;
+  produtosCelula.innerHTML = objeto.produtos;
+  valorCelula.innerHTML = objeto.valor;
+  predioCelula.innerHTML = objeto.predio;
+  salaCelula.innerHTML = objeto.sala;
+  situacaoCelula.innerHTML = objeto.situacao;
+}
+
+// Adiciona os objetos à tabela
+adicionarObjeto(objeto1);
+adicionarObjeto(objeto2);
+
+
+
+function adicionarLinha() {
+
+
+  var tabela = document.getElementById("tabelaObjetos");
+  var linha = tabela.insertRow(-1); // Insere uma nova linha no final da tabela
+
+  // Insere as células na linha
+  var idCelula = linha.insertCell(0);
+  var nomeCelula = linha.insertCell(1);
+  var produtosCelula = linha.insertCell(2);
+  var valorCelula = linha.insertCell(3);
+  var predioCelula = linha.insertCell(4);
+  var salaCelula = linha.insertCell(5);
+  var situacaoCelula = linha.insertCell(6);
+
+  var nome = prompt("Digite o nome:");
+  var predio = prompt("Digite o prédio:");
+  var sala = prompt("Digite a sala:");
+
+  alert("Pedido Realizado com sucesso!!!");
+  alert("Quando o pedido tiver chegado pressione o botão");
+  alert("Bom Apetite " + nome +  " !!!\uD83C\uDF55 \uD83D\uDE04 ");
+
+  var nomeProduto = document.getElementById("produto1").querySelector("h3").innerText;
+  var precoProduto = document.getElementById("produto1").querySelector("p").innerText;
+
+  var nomeProduto = document.getElementById("produto1").querySelector("h3").innerText;
+  var precoProduto = document.getElementById("produto1").querySelector("p").innerText;
+
+  idCelula.innerHTML = proximoId;
+  nomeCelula.innerHTML = nome;
+  produtosCelula.innerHTML = nomeProduto;
+  valorCelula.innerHTML = precoProduto;
+  predioCelula.innerHTML = predio;
+  salaCelula.innerHTML = sala;
+  situacaoCelula.innerHTML = "Entregue";
+  proximoId++;
+}
+</script>

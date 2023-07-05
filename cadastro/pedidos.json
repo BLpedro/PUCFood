@@ -1,0 +1,21 @@
+[
+    {
+    "id": 1,
+    "nome": "pedro",
+    "produtos": "coxinha",
+    "valor": "2.50",
+    "predio": "4",
+    "sala": "100",
+    "situacao": "Entregue"
+},
+{
+    "id": 2,
+    "nome": "pedro",
+    "produtos": ["coxinha", "empada"],
+    "valor": "8.00",
+    "predio": "1",
+    "sala": "100",
+    "situacao": "Entregue"
+}
+]
+  

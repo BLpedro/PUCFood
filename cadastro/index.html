@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | PucFood</title>
+    <script src="./index.js"></script>
+    <script src="./login.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    
+
+
+  <body>
+    <header>
+      <a class="logo" href="home.html">PucFood</a>
+    </header>
+    <div class="container">
+      <h2>Tela de Login</h2>
+      <form id="loginForm">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required><br>
+  
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required><br>
+  
+        <input type="submit" value="Login">
+      </form>
+      <p id="errorMessage" class="error"></p>
+    </div>
+
+    <footer>
+      <ul>
+        <b> METODOS DE PAGAMENTOS:</b>
+        <li> Visa </li>
+        <li> Mastercard </li>
+        <li> Pix </li>
+        <li> Boleto </li>
+      </ul>
+      
+      <ul>
+        <b> LINK ÚTEIS:</b>
+        <a href="cadastro-clientes.html"> Cadastro Clientes </a>
+        <a href="cadastro.html"> Cadastro Estabelecimentos </a>
+        <a href="login.html"> Login </a>
+        <a href="area.html"> Aréa do Usuario </a>
+      </ul>
+      
+      <ul>
+        <b> CONTATE-NOS:</b>
+        <li> R. Cláudio Manoel, 1162 -</li>
+        <li> - Savassi, Belo Horizonte  </li>
+        <li> PucFood@gmail.com </li>
+        <li> (31) 3131-2450 </li>
+      </ul>
+      </footer>
+  </body>
+</html>
+
+<script>
+  async function cadastrar() {
+    const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
+    const endereco = document.getElementById("endereco").value;
+
+    const data = { nome, telefone, endereco };
+
+    const response = await fetch("/cadastro", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    console.log(result);
+  }
+</script>
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Impede o envio do formulário
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    // Aqui você pode fazer a lógica de autenticação e verificar as credenciais no lado do cliente
+
+    // Exemplo simples: verifica se o usuário é "admin" e a senha é "admin"
+    if (username == "admin" && password == "admin") {
+      // Redireciona para a página de administrador
+      window.location.href = "admin.html";}
+      else if (username === "amalia" && password === "amalia" ){
+        window.location.href = "home.html";
+           } 
+           else if (username === "rommel" && password === "rommel" ){
+               window.location.href = "home.html";
+                  }
+
+                  else if (username === "usuario" && password === "usuario" ){
+                    window.location.href = "home.html";
+                       }
+    else {
+      // Exibe uma mensagem de erro
+      document.getElementById("errorMessage").textContent = "Usuário ou senha incorretos.";
+    }
+  });
+</script>

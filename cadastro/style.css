@@ -1,0 +1,175 @@
+body {margin: 0;
+top: 0;}
+
+.hidden {
+  display: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  header a {
+
+    font-family: DejaVu Sans Mono, monospace;
+    color:white;
+    font-size: xx-large;
+    text-decoration: none;
+  }
+
+  form {
+    flex-direction: column;
+  }
+  
+  input, button {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  header {
+   border: none;
+    background-color: #0a48ab;
+    color: white;
+   display: flex; 
+   justify-content: center;
+   margin: 0;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;    
+}
+
+#carrinho {
+  margin: 1;
+  left: 100px;
+  justify-content: right;
+  flex-direction: column;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+}
+
+#produtos {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+footer {
+  color: #F2F2F2;
+  background-color: #0a48ab;
+  display: flex;
+  justify-content: space-around;
+  font-size: 15px;
+  bottom: 0px;
+  left: 0px;
+  position: relative;
+width: 100%;
+padding-top: 10px;
+align-self: flex-end;
+}
+/*
+#323133
+#3C3B3D
+*/
+
+footer a {
+  text-decoration: none;
+  color: white;
+  flex-direction: column;
+  list-style: none;
+  display: block;
+
+}
+
+footer i{
+text-align: center;
+}
+
+  
+  ul {
+      list-style: none;
+  }
+  
+  li {
+      list-style: none;
+      text-decoration: none;
+  }
+  
+  .copyright{
+    color: #F2F2F2;
+    background-color: #323133;
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    bottom: 0px;
+    left: 0px;
+    position: relative;
+  width: 100%;
+  padding-top: 10px;
+  align-self: flex-end;
+  margin-bottom: 0px;
+  }
+  
+  
+  .fa-copyright:hover{
+    opacity: 1.0;
+  }
+
+
+  table {
+    border:1px solid #b3adad;
+    border-collapse:collapse;
+    padding:5px;
+    display: flex;
+    justify-content: center;
+  }
+  table th {
+    border:1px solid #b3adad;
+    padding:5px;
+    background: #f0f0f0;
+    color: #313030;
+  }
+  table td {
+    border:1px solid #b3adad;
+    text-align:center;
+    padding:5px;
+    background: #ffffff;
+    color: #313030;
+  }
+  
+  
+  .esvaziarCarrinho{
+    background-color: red;
+  }
+
+  @media only screen and (max-width: 768px) {
+
+    #produtos{
+      flex-direction: column;
+    }
+  
+  
+    footer{
+      flex-direction: column;
+      text-align: center;
+    }
+  
+  }

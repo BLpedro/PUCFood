@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | PucFood</title>
+    <script src="./index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    
+
+
+  <body>
+    <header>
+      <a class="logo" href="home.html">PucFood</a>
+    </header>
+    <div class="container">
+      <h1>Cadastro de Clientes</h1>
+      <form>
+        <input type="text" id="nome" placeholder="Email" required>
+        <input type="tel" id="telefone" placeholder="(31) 99999-9999" pattern="\([0-9]{2}\)\s[0-9]{4,5}-[0-9]{4}" required>
+        <input type="text" id="endereco" placeholder="Senha" required>
+        <button onclick="cadastrar()">Enviar</button>
+      </form>
+    </div>
+  </body>
+
+  <footer>
+    <ul>
+      <b> METODOS DE PAGAMENTOS:</b>
+      <li> Visa </li>
+      <li> Mastercard </li>
+      <li> Pix </li>
+      <li> Boleto </li>
+    </ul>
+    
+    <ul>
+      <b> LINK ÚTEIS:</b>
+      <li> Cadastro Clientes </li>
+      <li> Cadastro Estabelecimentos </li>
+      <li> Login </li>
+      <li> Aréa do Usuario </li>
+    </ul>
+    
+    <ul>
+      <b> CONTATE-NOS:</b>
+      <li> R. Cláudio Manoel, 1162 -</li>
+      <li> - Savassi, Belo Horizonte  </li>
+      <li> PucFood@gmail.com </li>
+      <li> (31) 3131-2450 </li>
+    </ul>
+    </footer>
+</html>
+
+<script>
+  async function cadastrar() {
+    const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
+    const endereco = document.getElementById("endereco").value;
+
+    const data = { nome, telefone, endereco };
+
+    const response = await fetch("/cadastro", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    console.log(result);
+  }
+</script>
