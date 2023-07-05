@@ -10,11 +10,20 @@
 },
 {
     "id": 2,
-    "nome": "pedro",
-    "produtos": ["coxinha", "empada"],
-    "valor": "8.00",
-    "predio": "1",
-    "sala": "100",
+    "nome": "Maria",
+    "produtos": "Energético Energy Monster 473ml",
+  "valor": "11.90",
+    "predio": "4",
+    "sala": 202,
+    "situacao": "Entregue"
+},
+{
+    "id": 3,
+    "nome": "Pedro",
+    "produtos": "Coca Cola 250ml",
+  "valor": "3.39",
+    "predio": "4",
+    "sala": 100,
     "situacao": "Entregue"
 }
 ]
